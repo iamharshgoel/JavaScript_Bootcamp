@@ -100,4 +100,83 @@ NOTE: This __proto__ usually called it as dunder proto in the JavaScript world.
 * Determines how variable names are resolved, especially with nested functions
   - Child functions contain the scope of the parent function, even if the parent has returned
 
- 
+###### Primitives vs. Objects
+
+* Primitives are immutable and passed by value(their value cannot be changed after they've been set)
+
+* Objects are mutable and stored by reference 
+
+
+**this**
+
+=> Refers to an object that's set at the creation of a new execution content
+=> In the global execution context, refers to global object
+=> If the function is called as a method of an object, `this` is bound to the object the method is called on
+
+👀 Setting `this` manually
+
+* bind(), call() and apply()
+
+- bind() will return a new function with `this` function
+- call() will actually call the function with `this` bound in any arguments as well
+- apply() does the same exact thing as call() but it takes 2 arguments
+  1st argument:- what this should be bound to
+  2nd argument:- an array of arguments
+
+* call() and apply() will actually run the function immediately whereas bind() will just return a new function so that you can use whenever you want.
+
+
+###### First Class Functions:-
+
+* Functions are treated the same way as objects
+  - can be assigned to variables, array values, object values
+  - can be passed as arguments to other functions
+  - can be returned from functions
+
+* Allows for the creation of higher-ordered functions
+  - either takes one or more functions as arguments or returns a function
+  - map(), filter(), reduce()
+
+🚩 Synchronous? Async? Single Threaded?
+
+* JavaScript is a single-threaded, synchronous language
+* A function that takes a long time to run will cause a page to become unresponsive
+* JavaScript has functions that act asynchronously
+
+
+💡 Asynchronous JavaScript
+
+* Execution Stack
+* Browser APIs (setTimeout, setInterval, fetch, axios etc.)
+* Function Queue
+* Event loop
+
+*The setTimeout() method calls a function or evaluates an expression after a specified number of milliseconds.
+
+*The setInterval() method calls a function or evaluates an expression at specified intervals (in milliseconds).
+
+The setInterval() method will continue calling the function until clearInterval() is called, or the window is closed.
+
+* The clearInterval() method clears a timer set with the setInterval() method.
+
+👀 Asynchronous Functions
+* setTimeout()
+* XMLHttpRequest, jQuery.ajax(), fetch()
+* Database calls
+
+👀 Callbacks
+* Controls flow with asynchronous calls
+* Execute function once asynchronous call returns value
+  - Program doesn't have to halt and wait for value
+
+💡 Promises:-
+
+* Alleviate "callback hell"
+* Allows you to write code that assumes a value is returned within a success function
+* Only needs a single error handler
+
+💡 Closures:-
+
+* Function that refer to variables declared by parent function
+* Possible because of lexical scoping
+
